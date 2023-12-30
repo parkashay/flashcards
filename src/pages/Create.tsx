@@ -26,7 +26,7 @@ const Create = () => {
       return;
     }
     setErrorMessage("");
-    const res =await createCard({
+    await createCard({
       question: formData.question,
       answer: formData.answer,
       userEmail: user?.email ?? "test@test.com",

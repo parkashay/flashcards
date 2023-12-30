@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import FlashCard from "../components/cards/FlashCard";
-import { checkLogin } from "../utils/checkLogin";
 import { Card } from "../types/types";
 import { useFetch } from "../hooks/useFetch";
 
 const Study = () => {
   const [randomized, setRandomized] = useState<Card[]>([]);
-  const [_, user] = checkLogin();
   const { cards } = useFetch();
   useEffect(() => {
     setRandomized(cards.sort(() => Math.random() - 0.5));
