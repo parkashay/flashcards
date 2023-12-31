@@ -4,6 +4,8 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
 import { checkLogin } from "../utils/checkLogin";
 import { FaArrowAltCircleUp, FaTrashAlt } from "react-icons/fa";
+import { useSetAtom } from "jotai";
+import { toastAtom } from "../jotai/atoms";
 
 const View = () => {
   const { id } = useParams();
@@ -11,6 +13,7 @@ const View = () => {
   const [isLoggedIn, _] = checkLogin();
   const { updateCard, deleteCard } = firebaseData();
   const [data, setData] = useState<DocumentData | undefined>();
+  const setToastMessage = useSetAtom(toastAtom);
   useEffect(() => {
     firebaseData()
       .getOneCard(id as string)
@@ -22,7 +25,8 @@ const View = () => {
       question: data?.question,
       answer: data?.answer,
     });
-    return navigate("/study");
+    setToastMessage('Card updated successfully');
+    return navigate("/my-cards");
   };
 
   const handleChange = (
@@ -33,11 +37,12 @@ const View = () => {
 
   const handleDelete = async () => {
     await deleteCard(id as string);
-    return navigate("/study");
+    setToastMessage('Your Card has been deleted.');
+    return navigate("/my-cards");
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md rounded-md my-12">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md border-4 border-highlight rounded-md my-12">
       <h2 className="text-2xl font-bold mb-6 text-center text-white">
         Edit or Delete your card.
       </h2>

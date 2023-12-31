@@ -12,7 +12,7 @@ without logging in, users can :
 after logging in, users can :
  - see what other people have posted
  - create and upload a card
- - view their cards and update or delete them.
+ - view their cards and update or delete them (only for the cards they have created).
 
 
 ### To run the project locally,
@@ -26,5 +26,5 @@ npm run dev
 ### List of tools:
 - React
 - Firebase with firebase auth and firebase hooks
-- Jotai for state management
+- Jotai for state management ( used for the toast messages.)
 - TailwindCSS

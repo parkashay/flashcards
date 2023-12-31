@@ -17,6 +17,7 @@ function App() {
       <Toaster
         toastOptions={{
           success: {
+            duration: 2000,
             style: {
               backgroundColor: "#CA8A04",
               fontWeight: 600,
@@ -30,7 +31,7 @@ function App() {
         <Route path="/study" element={<Study />} />
         <Route path="/create" element={loggedIn ? <Create /> : <Home />} />
         <Route path="/view/:id" element={<View />} />
-        <Route path="/my-cards" element={<MyCards />} />
+        <Route path="/my-cards" element={loggedIn ? <MyCards /> : <Home />} />
       </Routes>
       <Footer />
     </BrowserRouter>

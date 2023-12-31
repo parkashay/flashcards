@@ -89,13 +89,13 @@ const Navbar = () => {
                   </Link>
                   <Link
                     to={"/create"}
-                    className="flex items-center gap-2 bg-highlight text-primary px-3 py-2 font-bold rounded-lg"
+                    className="flex items-center gap-2 bg-highlight hover:bg-highlight/70 text-text px-3 py-2 font-bold rounded-lg"
                   >
                     {" "}
                     <FaPencilAlt /> Create
                   </Link>
                   <button
-                    className="flex items-center gap-2 bg-danger px-3 py-2 font-bold rounded-lg"
+                    className="flex items-center gap-2 bg-danger hover:bg-danger/70 px-3 py-2 font-bold rounded-lg"
                     onClick={logout}
                   >
                     <img
@@ -108,10 +108,10 @@ const Navbar = () => {
                 </div>
               ) : (
                 <button
-                  className="flex items-center gap-3 bg-accent px-3 py-2 font-bold rounded-lg"
+                  className="flex items-center gap-3 bg-accent/60 px-3 py-2 font-bold rounded-lg"
                   onClick={login}
                 >
-                  LOGIN with <FaGoogle />
+                  Login with <FaGoogle />
                 </button>
               )}
             </ul>

@@ -11,7 +11,8 @@ const Create = () => {
   });
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [_, user] = checkLogin();
-  const notify = () => toast.success("Card created successfully", {position: 'top-center'});
+  const notify = () =>
+    toast.success("Card created successfully", { position: "top-center" });
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -34,12 +35,12 @@ const Create = () => {
       userEmail: user?.email ?? "test@test.com",
     });
     setFormData({ question: "", answer: "" });
-    notify()
+    notify();
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md rounded-md my-12">
-      <h2 className="text-2xl font-bold mb-6 text-center text-white">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md rounded-md my-12 border-4 border-highlight">
+      <h2 className="text-2xl font-bold mb-6 text-center text-text">
         Publish your card..
       </h2>
       <form onSubmit={(e) => handleSubmit(e)}>
