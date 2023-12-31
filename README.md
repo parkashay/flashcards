@@ -28,3 +28,4 @@ npm run dev
 - Firebase with firebase auth and firebase hooks
 - Jotai for state management ( used for the toast messages.)
 - TailwindCSS
+- Framer Motion
