@@ -1,9 +1,8 @@
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { Card } from "../../types/types";
-import { FaCommentAlt, FaQuestionCircle, FaUser } from "react-icons/fa";
+import { FaCommentAlt, FaEdit, FaQuestionCircle, FaUser } from "react-icons/fa";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
-import { BsEye } from "react-icons/bs";
 import { checkLogin } from "../../utils/checkLogin";
 import { Link } from "react-router-dom";
 
@@ -15,11 +14,11 @@ const FlashCard = ({ id, data }: Card) => {
     
 
   return (
-    <div className="flex items-center justify-center max-w-[500px]">
+    <div className="w-full">
       <ReactCardFlip
         isFlipped={isFlipped}
         flipDirection="horizontal"
-        containerClassName="w-full shadow-lg"
+        containerClassName="w-full shadow-lg "
       >
         <div className="flex items-center justify-between flex-col bg-highlight/70 rounded-lg bg px-3 min-h-[200px]">
           <div className="w-full text-2xl my-2 flex justify-between">
@@ -32,7 +31,7 @@ const FlashCard = ({ id, data }: Card) => {
                   to={`/view/${id}`}
                   className="flex items-center gap-1 bg-accent hover:bg-accent/50 px-2 py-1 rounded-lg "
                 >
-                  <BsEye />
+                  <FaEdit />
                 </Link>
               ) : (
                 ""

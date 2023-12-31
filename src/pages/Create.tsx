@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { firebaseData } from "../utils/firebaseData";
 import { checkLogin } from "../utils/checkLogin";
+import toast from "react-hot-toast";
 
 const Create = () => {
   const { createCard } = firebaseData();
@@ -10,6 +11,7 @@ const Create = () => {
   });
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [_, user] = checkLogin();
+  const notify = () => toast.success("Card created successfully", {position: 'top-center'});
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -32,6 +34,7 @@ const Create = () => {
       userEmail: user?.email ?? "test@test.com",
     });
     setFormData({ question: "", answer: "" });
+    notify()
   };
 
   return (

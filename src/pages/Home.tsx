@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <CardContainer cards={cards} />
+      <CardContainer cards={cards.slice(0,6)} />
     </main>
   );
 };

@@ -26,7 +26,7 @@ const Navbar = () => {
   const logout = () => {
     auth.signOut();
   };
-  
+
   return (
     <nav className="bg-gray-800 p-4 ">
       <div className="container mx-auto flex justify-between items-center">
@@ -68,7 +68,7 @@ const Navbar = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className={`px-3 py-2 text-white ${
+                    className={`px-3 py-2 text-white hover:bg-white/10 ${
                       pathname === link.path ? "bg-white/10 rounded" : ""
                     }`}
                   >
@@ -79,17 +79,30 @@ const Navbar = () => {
               ))}
               {isLoggedIn && user ? (
                 <div className="flex flex-col md:flex-row items-center gap-2">
-                    <Link to={'/create'} className="flex items-center gap-2 bg-highlight text-primary px-3 py-2 font-bold rounded-lg"> <FaPencilAlt /> Create</Link>
+                  <Link
+                    to={"/my-cards"}
+                    className={`px-3 py-2 hover:bg-white/10 ${
+                      pathname === "/my-cards" ? "bg-white/10 rounded" : ""
+                    }`}
+                  >
+                    My Cards
+                  </Link>
+                  <Link
+                    to={"/create"}
+                    className="flex items-center gap-2 bg-highlight text-primary px-3 py-2 font-bold rounded-lg"
+                  >
+                    {" "}
+                    <FaPencilAlt /> Create
+                  </Link>
                   <button
                     className="flex items-center gap-2 bg-danger px-3 py-2 font-bold rounded-lg"
                     onClick={logout}
                   >
                     <img
                       src={user.photoURL as string}
-                      alt={'user'}
+                      alt={"user"}
                       className="h-6 w-6 rounded-full"
-                    />
-                    {" "}
+                    />{" "}
                     Logout{" "}
                   </button>
                 </div>
