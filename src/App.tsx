@@ -11,10 +11,10 @@ import MyCards from "./pages/MyCards";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const [loggedIn] = checkLogin();
+  const [isLoggedIn, user] = checkLogin();
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} user={user} />
       <Toaster
         toastOptions={{
           success: {
@@ -30,9 +30,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/study" element={<Study />} />
-        <Route path="/create" element={loggedIn ? <Create /> : <Home />} />
+        <Route path="/create" element={isLoggedIn ? <Create /> : <Home />} />
         <Route path="/view/:id" element={<View />} />
-        <Route path="/my-cards" element={loggedIn ? <MyCards /> : <Home />} />
+        <Route path="/my-cards" element={isLoggedIn ? <MyCards /> : <Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
