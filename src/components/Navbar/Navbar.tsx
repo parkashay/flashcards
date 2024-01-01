@@ -18,7 +18,6 @@ const Navbar = () => {
   const [showDrawer, setShowDrawer] = useAtom(drawerAtom);
   return (
     <nav>
-      {/* DRAWER */}
       {showDrawer && (
         <div
           className="bg-primary/70 w-full absolute h-full z-50 md:hidden"
@@ -27,7 +26,6 @@ const Navbar = () => {
           <Drawer isLoggedIn={isLoggedIn} user={user} />
         </div>
       )}
-      {/* DESKTOP NAVBAR */}
       <DesktopNavbar isLoggedIn={isLoggedIn} user={user} />
     </nav>
   );
