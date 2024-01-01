@@ -8,6 +8,7 @@ import Study from "./pages/Study";
 import View from "./pages/View";
 import { Toaster } from "react-hot-toast";
 import MyCards from "./pages/MyCards";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [loggedIn] = checkLogin();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/create" element={loggedIn ? <Create /> : <Home />} />
         <Route path="/view/:id" element={<View />} />
         <Route path="/my-cards" element={loggedIn ? <MyCards /> : <Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

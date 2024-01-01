@@ -9,8 +9,7 @@ import {
 import { db } from "../firebase/firebase";
 
 /**
- *  utility functions to use different operations on the documents in the firestore database.
- *  CRUD op on firestore db
+ *  utility functions to use CRUD operations on the documents in the firestore database.
  */
 
 export const firebaseData = () => {
