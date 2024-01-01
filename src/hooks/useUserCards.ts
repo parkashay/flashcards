@@ -12,6 +12,12 @@ interface Card {
   id: string;
   data: DocumentData;
 }
+
+/**
+ *
+ * @param {String} email
+ * @returns {Object} the cards created by the user with the particular email.
+ */
 export const useUserCards = (email: string | null | undefined) => {
   const [cards, setCards] = useState<Card[]>([]);
   useEffect(() => {

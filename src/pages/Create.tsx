@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { firebaseData } from "../utils/firebaseData";
 import { checkLogin } from "../utils/checkLogin";
 import toast from "react-hot-toast";
+import { BsInfoCircle } from "react-icons/bs";
 
 const Create = () => {
   const { createCard } = firebaseData();
@@ -39,7 +40,7 @@ const Create = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md rounded-md my-12 border-4 border-highlight">
+    <div className="relative overflow-hidden max-w-md mx-auto mt-10 p-6 bg-secondary shadow-md rounded-md my-12 border-4 border-highlight/30">
       <h2 className="text-2xl font-bold mb-6 text-center text-text">
         Publish your card..
       </h2>
@@ -85,6 +86,10 @@ const Create = () => {
           </button>
         </div>
       </form>
+      <div className="relative py-3 h-12 italic mt-12 text-text/70"> 
+      <div className="absolute z-10 flex items-center  gap-2"><BsInfoCircle size={20} /> Cards you post will be visible to everyone.</div>
+      </div>
+      <div className="absolute -bottom-12 h-12 w-full bg-highlight/40 -skew-y-[45deg]"></div>
     </div>
   );
 };

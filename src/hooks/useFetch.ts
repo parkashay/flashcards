@@ -11,6 +11,12 @@ interface Card {
   id: string;
   data: DocumentData;
 }
+
+/**
+ *
+ * @returns {Object} all the cards available in the firestore database
+ */
+
 export const useFetch = () => {
   const [cards, setCards] = useState<Card[]>([]);
   useEffect(() => {

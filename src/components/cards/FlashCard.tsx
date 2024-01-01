@@ -18,7 +18,15 @@ const FlashCard = ({ id, data }: Card) => {
   const showActions = user?.email == data.userEmail;
 
   return (
-    <motion.div animate={{ y: [-50, 0], opacity: [0, 1] }} className="w-full">
+    <motion.div
+      animate={{
+        x: [-Math.ceil((Math.random() - 0.5) * 50), 0],
+        y: [-Math.ceil((Math.random() - 0.5) * 50), 0],
+        opacity: [0, 1],
+      }}
+      transition={{ type: "spring", stiffness: 120 }}
+      className="w-full"
+    >
       <ReactCardFlip
         isFlipped={isFlipped}
         flipDirection="horizontal"
@@ -26,8 +34,9 @@ const FlashCard = ({ id, data }: Card) => {
       >
         <div
           onClick={() => setIsFlipped(!isFlipped)}
-          className="flex items-center justify-between flex-col bg-highlight/70 rounded-lg bg px-3 min-h-[200px]"
+          className="relative overflow-hidden flex items-center justify-between flex-col bg-highlight/70 rounded-lg bg px-3 min-h-[200px]"
         >
+          <div className="absolute bg-secondary/60 w-[150px] h-6 right-0 bottom-0 -skew-y-[25deg]"></div>
           <div className="w-full my-2 flex justify-between">
             {" "}
             <div className="flex items-center gap-2">
@@ -48,16 +57,18 @@ const FlashCard = ({ id, data }: Card) => {
               )}{" "}
             </div>
           </div>
-          <div className="text-xl my-2 font-semibold px-3">{data.question}</div>
-          <div className="flex items-center gap-2 py-1 text-xs">
+          <div className="text-xl my-2 font-semibold px-3 z-10">{data.question}</div>
+          <div className="flex items-center gap-2 py-1 text-xs z-10">
             {" "}
             <FaInfoCircle /> Flip to see answer
           </div>
         </div>
         <div
           onClick={() => setIsFlipped(!isFlipped)}
-          className="flex items-center justify-between flex-col bg-green-500/10 rounded-lg bg px-3 min-h-[200px]"
+          className="relative overflow-hidden flex items-center justify-between flex-col bg-green-500/10 rounded-lg bg px-3 min-h-[200px]"
         >
+          <div className="absolute bg-highlight/40 w-[150px] h-6 right-0 bottom-0 -skew-y-[25deg]"></div>
+
           <div className=" flex w-full text-2xl gap-3 my-2 justify-between flex-wrap">
             {" "}
             <FaCommentAlt />

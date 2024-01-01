@@ -41,12 +41,12 @@ const HeroSection = () => {
             Sharing knowledge is the best way for improvement.
           </motion.p>
           <motion.div
-          animate={{
-            rotate: [-180, -180, -90, 0],
-            translateX: [0, 400, 400, 0],
-            translateY: [-200,-200, 0  ,0],
-            transition: { duration: 0.5},
-          }}
+            animate={{
+              rotate: [-180, -180, -90, 0],
+              translateX: [0, 400, 400, 0],
+              translateY: [-200, -200, 0, 0],
+              transition: { duration: 0.5 },
+            }}
           >
             <button
               onClick={create}

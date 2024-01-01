@@ -8,6 +8,11 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
+/**
+ *  utility functions to use different operations on the documents in the firestore database.
+ *  CRUD op on firestore db
+ */
+
 export const firebaseData = () => {
   const getOneCard = async (id: string) => {
     try {
@@ -16,9 +21,10 @@ export const firebaseData = () => {
       return docSnap.data();
     } catch (err) {
       console.error(err);
-      return {status: false}
+      return { status: false };
     }
-  }
+  };
+
   const createCard = async ({
     question,
     answer,
@@ -29,7 +35,7 @@ export const firebaseData = () => {
     userEmail: string;
   }) => {
     try {
-      await addDoc(collection(db, 'cards'), {
+      await addDoc(collection(db, "cards"), {
         question,
         answer,
         userEmail,
@@ -51,11 +57,15 @@ export const firebaseData = () => {
     answer: string;
   }) => {
     try {
-      await setDoc(doc(db, "cards", id), {
-        question,
-        answer,
-      }, {merge: true});
-      return {status: true}
+      await setDoc(
+        doc(db, "cards", id),
+        {
+          question,
+          answer,
+        },
+        { merge: true }
+      );
+      return { status: true };
     } catch (err) {
       console.error(err);
       return { status: false };
@@ -64,11 +74,11 @@ export const firebaseData = () => {
 
   const deleteCard = async (id: string) => {
     try {
-        await deleteDoc(doc(db, "cards", id));
-        return {status: true}
-    }catch{
-        return {status: false}
+      await deleteDoc(doc(db, "cards", id));
+      return { status: true };
+    } catch {
+      return { status: false };
     }
-  }
-  return {createCard, updateCard, deleteCard, getOneCard}
+  };
+  return { createCard, updateCard, deleteCard, getOneCard };
 };

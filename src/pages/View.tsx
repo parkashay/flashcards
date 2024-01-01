@@ -6,6 +6,7 @@ import { checkLogin } from "../utils/checkLogin";
 import { FaArrowAltCircleUp, FaTrashAlt } from "react-icons/fa";
 import { useSetAtom } from "jotai";
 import { toastAtom } from "../jotai/atoms";
+import { BsInfoCircle } from "react-icons/bs";
 
 const View = () => {
   const { id } = useParams();
@@ -42,7 +43,7 @@ const View = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white/10 shadow-md border-4 border-highlight rounded-md my-12">
+    <div className="relative overflow-hidden max-w-md mx-auto mt-10 p-6 bg-secondary shadow-md border-4 border-highlight/30 rounded-md my-12">
       <h2 className="text-2xl font-bold mb-6 text-center text-white">
         Edit or Delete your card.
       </h2>
@@ -92,6 +93,9 @@ const View = () => {
           <FaTrashAlt /> Delete
         </button>
       </div>
+      <div className="absolute -bottom-12 h-12 w-full bg-highlight/40 -skew-y-[45deg]"></div>
+      <div className="mt-12 flex gap-2 items-center"> <BsInfoCircle/>  You can update your cards from this page. </div>
+      <div className="flex gap-2 items-center text-danger"> <BsInfoCircle/> Deleted cards can't be recovered. </div>
     </div>
   );
 };
