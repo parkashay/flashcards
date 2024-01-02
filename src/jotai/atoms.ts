@@ -7,6 +7,6 @@ import { atom } from "jotai";
 export const toastAtom = atom<string | null>(null);
 
 /**
- * the drawer atom is used for the hamburger menu to open and close the menu in small screens.
+ * the drawer atom is used for the drawer to open and close in small screens.
  */
 export const drawerAtom = atom<boolean>(false);

@@ -23,6 +23,7 @@ git clone <repo>
 npm i
 set up .env file based on .env.example
 npm run dev
+run tests by using `npm run test`
 ```
 
 ### List of tools:
@@ -31,3 +32,4 @@ npm run dev
 - Jotai for state management ( used for the toast messages.)
 - TailwindCSS
 - Framer Motion
+- Vitest for testing
