@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { auth } from "../../firebase/firebase";
 import { BsGoogle } from "react-icons/bs";
 import { login } from "../../utils/login";
+import {motion} from 'framer-motion'
 
 export default function DesktopNavbar({
   isLoggedIn,
@@ -86,7 +87,13 @@ export default function DesktopNavbar({
                 />
               </button>
               {showDropdown && (
-                <div className="absolute flex flex-col gap-3 items-center right-6 top-[70px] z-50 bg-secondary py-3 px-3 rounded">
+                <motion.div
+                animate={{
+                  y: [-50, 0],
+                  opacity: [0, 1],
+                  transition: { duration: 0.2 },
+                }}
+                className="absolute flex flex-col gap-3 items-center right-6 top-[70px] z-50 bg-secondary py-3 px-3 rounded">
                   <div>{user?.email}</div>
                   <button
                     onClick={() => logout()}
@@ -94,7 +101,7 @@ export default function DesktopNavbar({
                   >
                     Logout <TbLogout />{" "}
                   </button>
-                </div>
+                </motion.div>
               )}
             </div>
           ) : (

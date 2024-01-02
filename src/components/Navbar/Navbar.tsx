@@ -1,8 +1,8 @@
-import { checkLogin } from "../../utils/checkLogin";
 import { useAtom } from "jotai";
 import { drawerAtom } from "../../jotai/atoms";
 import Drawer from "./Drawer";
 import DesktopNavbar from "./DesktopNavbar";
+import { User } from "firebase/auth";
 export const NAV_LINKS = [
   {
     title: "Home",
@@ -13,8 +13,12 @@ export const NAV_LINKS = [
     href: "/study",
   },
 ];
-const Navbar = () => {
-  const [isLoggedIn, user] = checkLogin();
+
+interface NavbarProps {
+  isLoggedIn: boolean;
+  user: User | null;
+}
+const Navbar = ({isLoggedIn, user}: NavbarProps) => {
   const [showDrawer, setShowDrawer] = useAtom(drawerAtom);
   return (
     <nav>

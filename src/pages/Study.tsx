@@ -48,7 +48,7 @@ const Study = () => {
         </button>{" "}
       </div>
       <div>
-        { cards.length == 0 || index <= cards.length ? (
+        {cards.length == 0 || index <= cards.length ? (
           <CardContainer
             cards={
               cardsPerPage === 1
